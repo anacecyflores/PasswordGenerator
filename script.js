@@ -1,15 +1,15 @@
 // Assignment Code
 // Write password to the #password input
-function writePasword() {
+function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
   passwordText.value = password}
 // let generateBtn = document.querySelector("#generate");// When user clicks on GamepadButton, function runs.
 let generateBtn = document.querySelector("#generate");
 let passwordText = document.querySelector("#password");
-// Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
-// Variable Declaration
+// Add event listener to generate button (line 11 was changed 4/21)
+generateBtn.addEventListener("click", writePassword);
+// Variable Declarations
 let lowerAlphabet= "abcdefghijklmnopqrstuvwxyz";
 let upperAlphabet=  "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let symbolChoice=  "!#$%&()*+-:;^_|`',./{}=<>?@~";
@@ -17,48 +17,48 @@ let numberChoice=  "0123456789";
 let lengthInput= "";
 let passFinish= "";
 let passwordMust= "";
-// function
-function writePassword(){
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
-  passwordText.value = password;
-  };
-// generatePassword();
+// function to generate the password by mixing the user's chosen characteristics
 function generatePassword(){
-      //user defines password length
-      // User prompts
+  //user defines password length
+  // User prompts
 let lengthInput= window.prompt('Enter your password length from 8-128 characters:');
 if (lengthInput<8 || lengthInput>128) {
-    alert("You MUST enter a number between 8 and 128!");
-  // return lengthInput;
-  };
-// Prompts:
-if (lengthInput === true){
-  lowerLetters = window.confirm("Include lowercase letters?");
-  if (lowerLetters === true) {
-    passwordMust = passwordMust.concat(lowerAlphabet);
+  alert("You MUST enter a number between 8 and 128!");
+// } if (lengthInput); {
+//   alert("You must enter a numeric value from 8-128") if they do not enter a number between 8 and 128
+return lengthInput;
 }
-  upperLetters = window.confirm("Include uppercase letters?");
-  if (upperLetters === true) {
-    passwordMust = passwordMust.concat(upperAlphabet);
+
+{
+// Prompts user to say "cancel"= do not include and "okay"= include
+let lowerLetters = window.confirm("Include lowercase letters?")
+if (lowerLetters === true) {
+passwordMust = passwordMust.concat(lowerAlphabet);
 }
-  symbolYes = window.confirm("Include symbols?");
-  if (symbolChoice === true) {
-    passwordMust = passwordMust.concat(symbolChoice)
-  numberYes = window.confirm("Include numbers?");
+let upperLetters = window.confirm("Include uppercase letters?")
+if (upperLetters === true) {
+passwordMust = passwordMust.concat(upperAlphabet)
 }
-if (numberChoice === true) {
-  passwordMust = passwordMust.concat(numberChoice)
+let symbolYes = window.confirm("Include symbols?")
+if (symbolYes === true) {
+passwordMust = passwordMust.concat(symbolChoice)
 }
-if ((upperAlphabet === false) && (lowerAlphabet === false) && (numberChoice === false) && (symbolChoice === false)) {
-  alert('At least one of the password criteria must be chosen.');
- //generatePassword() sends the user to main prompt start over
+let numberYes = window.confirm("Include numbers?")
+if (numberYes === true) {
+passwordMust = passwordMust.concat(numberChoice)
 }
-//loop 
-(passwordMust);
-{for (var i = 0; i < lengthInput; i++ ) 
-    passFinish = passFinish + passwordMust.charAt( Math.floor(Math.random() * (passwordMust.length)));
-    return passFinish }     
-    }
+
+else {
+if ((upperLetters === false) && (lowerLetters === false) && (numberYes === false) && (symbolYes === false)) {
+alert('At least one of the password criteria must be chosen.');
 }
-  
+
+    }                     
+}
+// this math  addition randomizes the user's selections and mixes it to create a unique password 
+for (var i = 0; i < lengthInput; i++ ) {
+passFinish = passFinish + passwordMust.charAt( Math.floor(Math.random() * (passwordMust.length)));
+} 
+// loops the prompt again for the user to generate another password
+return passFinish
+}
