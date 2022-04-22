@@ -7,7 +7,7 @@ function writePassword() {
 // let generateBtn = document.querySelector("#generate");// When user clicks on GamepadButton, function runs.
 let generateBtn = document.querySelector("#generate");
 let passwordText = document.querySelector("#password");
-// Add event listener to generate button (line 11 was changed 4/21)
+// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 // Variable Declarations
 let lowerAlphabet= "abcdefghijklmnopqrstuvwxyz";
